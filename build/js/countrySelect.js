@@ -317,12 +317,12 @@
 			// (except when this initial opening click is bubbling up)
 			// we cannot just stopPropagation as it may be needed to close another instance
 			//var isOpening = true;
-			//$("html").on("click" + this.ns, function(e) {
-			//	if (!isOpening) {
-			//		that._closeDropdown();
-			//	}
-			//	isOpening = false;
-			//});
+			$("html").on("click" + this.ns, function(e) {
+				if (!isOpening) {
+					that._closeDropdown();
+				}
+				setTimeout(function(){isOpening = false;}, 100);
+			});
 			// Listen for up/down scrolling, enter to select, or letters to jump to country name.
 			// Use keydown as keypress doesn't fire for non-char keys and we want to catch if they
 			// just hit down and hold it to scroll down (no keyup event).
