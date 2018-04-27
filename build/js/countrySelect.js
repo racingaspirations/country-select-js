@@ -516,9 +516,9 @@
 		},
 		// update the selected flag
 		selectCountry: function(countryCode) {
-			countryCode = countryCode.toLowerCase();
+			countryCode = typeof countryCode === 'string' ? countryCode.toLowerCase() : null;
 			// check if already selected
-			if (!this.selectedFlagInner.hasClass(countryCode)) {
+			if (countryCode && !this.selectedFlagInner.hasClass(countryCode)) {
 				this._selectFlag(countryCode);
 				this._updateName(countryCode);
 			}
